@@ -1824,10 +1824,7 @@ __webpack_require__.r(__webpack_exports__);
         email: '',
         about: '',
         country: '',
-        check_box_1: '',
-        check_box_2: '',
-        check_box_3: '',
-        check_box_4: '',
+        check_box_1: [],
         status: ''
       }
     };
@@ -2021,10 +2018,7 @@ __webpack_require__.r(__webpack_exports__);
         email: '',
         about: '',
         country: '',
-        check_box_1: '',
-        check_box_2: '',
-        check_box_3: '',
-        check_box_4: '',
+        check_box_1: [],
         status: ''
       }
     };
@@ -2033,6 +2027,7 @@ __webpack_require__.r(__webpack_exports__);
     saveForm: function saveForm() {
       var app = this;
       var newCompany = app.company;
+      console.log(newCompany);
       axios.patch('/api/v1/companies/' + app.companyId, newCompany).then(function (resp) {
         app.$router.replace('/');
       })["catch"](function (resp) {
@@ -37716,23 +37711,19 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: {
-                      type: "checkbox",
-                      "true-value": "1",
-                      "false-value": "0"
-                    },
+                    attrs: { type: "checkbox", value: "1" },
                     domProps: {
                       checked: Array.isArray(_vm.company.check_box_1)
-                        ? _vm._i(_vm.company.check_box_1, null) > -1
-                        : _vm._q(_vm.company.check_box_1, "1")
+                        ? _vm._i(_vm.company.check_box_1, "1") > -1
+                        : _vm.company.check_box_1
                     },
                     on: {
                       change: function($event) {
                         var $$a = _vm.company.check_box_1,
                           $$el = $event.target,
-                          $$c = $$el.checked ? "1" : "0"
+                          $$c = $$el.checked ? true : false
                         if (Array.isArray($$a)) {
-                          var $$v = null,
+                          var $$v = "1",
                             $$i = _vm._i($$a, $$v)
                           if ($$el.checked) {
                             $$i < 0 &&
@@ -37765,46 +37756,42 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.company.check_box_2,
-                        expression: "company.check_box_2"
+                        value: _vm.company.check_box_1,
+                        expression: "company.check_box_1"
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: {
-                      type: "checkbox",
-                      "true-value": "1",
-                      "false-value": "0"
-                    },
+                    attrs: { type: "checkbox", value: "2" },
                     domProps: {
-                      checked: Array.isArray(_vm.company.check_box_2)
-                        ? _vm._i(_vm.company.check_box_2, null) > -1
-                        : _vm._q(_vm.company.check_box_2, "1")
+                      checked: Array.isArray(_vm.company.check_box_1)
+                        ? _vm._i(_vm.company.check_box_1, "2") > -1
+                        : _vm.company.check_box_1
                     },
                     on: {
                       change: function($event) {
-                        var $$a = _vm.company.check_box_2,
+                        var $$a = _vm.company.check_box_1,
                           $$el = $event.target,
-                          $$c = $$el.checked ? "1" : "0"
+                          $$c = $$el.checked ? true : false
                         if (Array.isArray($$a)) {
-                          var $$v = null,
+                          var $$v = "2",
                             $$i = _vm._i($$a, $$v)
                           if ($$el.checked) {
                             $$i < 0 &&
                               _vm.$set(
                                 _vm.company,
-                                "check_box_2",
+                                "check_box_1",
                                 $$a.concat([$$v])
                               )
                           } else {
                             $$i > -1 &&
                               _vm.$set(
                                 _vm.company,
-                                "check_box_2",
+                                "check_box_1",
                                 $$a.slice(0, $$i).concat($$a.slice($$i + 1))
                               )
                           }
                         } else {
-                          _vm.$set(_vm.company, "check_box_2", $$c)
+                          _vm.$set(_vm.company, "check_box_1", $$c)
                         }
                       }
                     }
@@ -37819,46 +37806,42 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.company.check_box_3,
-                        expression: "company.check_box_3"
+                        value: _vm.company.check_box_1,
+                        expression: "company.check_box_1"
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: {
-                      type: "checkbox",
-                      "true-value": "1",
-                      "false-value": "0"
-                    },
+                    attrs: { type: "checkbox", value: "3" },
                     domProps: {
-                      checked: Array.isArray(_vm.company.check_box_3)
-                        ? _vm._i(_vm.company.check_box_3, null) > -1
-                        : _vm._q(_vm.company.check_box_3, "1")
+                      checked: Array.isArray(_vm.company.check_box_1)
+                        ? _vm._i(_vm.company.check_box_1, "3") > -1
+                        : _vm.company.check_box_1
                     },
                     on: {
                       change: function($event) {
-                        var $$a = _vm.company.check_box_3,
+                        var $$a = _vm.company.check_box_1,
                           $$el = $event.target,
-                          $$c = $$el.checked ? "1" : "0"
+                          $$c = $$el.checked ? true : false
                         if (Array.isArray($$a)) {
-                          var $$v = null,
+                          var $$v = "3",
                             $$i = _vm._i($$a, $$v)
                           if ($$el.checked) {
                             $$i < 0 &&
                               _vm.$set(
                                 _vm.company,
-                                "check_box_3",
+                                "check_box_1",
                                 $$a.concat([$$v])
                               )
                           } else {
                             $$i > -1 &&
                               _vm.$set(
                                 _vm.company,
-                                "check_box_3",
+                                "check_box_1",
                                 $$a.slice(0, $$i).concat($$a.slice($$i + 1))
                               )
                           }
                         } else {
-                          _vm.$set(_vm.company, "check_box_3", $$c)
+                          _vm.$set(_vm.company, "check_box_1", $$c)
                         }
                       }
                     }
@@ -37873,46 +37856,42 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.company.check_box_4,
-                        expression: "company.check_box_4"
+                        value: _vm.company.check_box_1,
+                        expression: "company.check_box_1"
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: {
-                      type: "checkbox",
-                      "true-value": "1",
-                      "false-value": "0"
-                    },
+                    attrs: { type: "checkbox", value: "4" },
                     domProps: {
-                      checked: Array.isArray(_vm.company.check_box_4)
-                        ? _vm._i(_vm.company.check_box_4, null) > -1
-                        : _vm._q(_vm.company.check_box_4, "1")
+                      checked: Array.isArray(_vm.company.check_box_1)
+                        ? _vm._i(_vm.company.check_box_1, "4") > -1
+                        : _vm.company.check_box_1
                     },
                     on: {
                       change: function($event) {
-                        var $$a = _vm.company.check_box_4,
+                        var $$a = _vm.company.check_box_1,
                           $$el = $event.target,
-                          $$c = $$el.checked ? "1" : "0"
+                          $$c = $$el.checked ? true : false
                         if (Array.isArray($$a)) {
-                          var $$v = null,
+                          var $$v = "4",
                             $$i = _vm._i($$a, $$v)
                           if ($$el.checked) {
                             $$i < 0 &&
                               _vm.$set(
                                 _vm.company,
-                                "check_box_4",
+                                "check_box_1",
                                 $$a.concat([$$v])
                               )
                           } else {
                             $$i > -1 &&
                               _vm.$set(
                                 _vm.company,
-                                "check_box_4",
+                                "check_box_1",
                                 $$a.slice(0, $$i).concat($$a.slice($$i + 1))
                               )
                           }
                         } else {
-                          _vm.$set(_vm.company, "check_box_4", $$c)
+                          _vm.$set(_vm.company, "check_box_1", $$c)
                         }
                       }
                     }
@@ -38287,23 +38266,19 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: {
-                      type: "checkbox",
-                      "true-value": "1",
-                      "false-value": "0"
-                    },
+                    attrs: { type: "checkbox", value: "1" },
                     domProps: {
                       checked: Array.isArray(_vm.company.check_box_1)
-                        ? _vm._i(_vm.company.check_box_1, null) > -1
-                        : _vm._q(_vm.company.check_box_1, "1")
+                        ? _vm._i(_vm.company.check_box_1, "1") > -1
+                        : _vm.company.check_box_1
                     },
                     on: {
                       change: function($event) {
                         var $$a = _vm.company.check_box_1,
                           $$el = $event.target,
-                          $$c = $$el.checked ? "1" : "0"
+                          $$c = $$el.checked ? true : false
                         if (Array.isArray($$a)) {
-                          var $$v = null,
+                          var $$v = "1",
                             $$i = _vm._i($$a, $$v)
                           if ($$el.checked) {
                             $$i < 0 &&
@@ -38336,46 +38311,42 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.company.check_box_2,
-                        expression: "company.check_box_2"
+                        value: _vm.company.check_box_1,
+                        expression: "company.check_box_1"
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: {
-                      type: "checkbox",
-                      "true-value": "1",
-                      "false-value": "0"
-                    },
+                    attrs: { type: "checkbox", value: "2" },
                     domProps: {
-                      checked: Array.isArray(_vm.company.check_box_2)
-                        ? _vm._i(_vm.company.check_box_2, null) > -1
-                        : _vm._q(_vm.company.check_box_2, "1")
+                      checked: Array.isArray(_vm.company.check_box_1)
+                        ? _vm._i(_vm.company.check_box_1, "2") > -1
+                        : _vm.company.check_box_1
                     },
                     on: {
                       change: function($event) {
-                        var $$a = _vm.company.check_box_2,
+                        var $$a = _vm.company.check_box_1,
                           $$el = $event.target,
-                          $$c = $$el.checked ? "1" : "0"
+                          $$c = $$el.checked ? true : false
                         if (Array.isArray($$a)) {
-                          var $$v = null,
+                          var $$v = "2",
                             $$i = _vm._i($$a, $$v)
                           if ($$el.checked) {
                             $$i < 0 &&
                               _vm.$set(
                                 _vm.company,
-                                "check_box_2",
+                                "check_box_1",
                                 $$a.concat([$$v])
                               )
                           } else {
                             $$i > -1 &&
                               _vm.$set(
                                 _vm.company,
-                                "check_box_2",
+                                "check_box_1",
                                 $$a.slice(0, $$i).concat($$a.slice($$i + 1))
                               )
                           }
                         } else {
-                          _vm.$set(_vm.company, "check_box_2", $$c)
+                          _vm.$set(_vm.company, "check_box_1", $$c)
                         }
                       }
                     }
@@ -38390,46 +38361,42 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.company.check_box_3,
-                        expression: "company.check_box_3"
+                        value: _vm.company.check_box_1,
+                        expression: "company.check_box_1"
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: {
-                      type: "checkbox",
-                      "true-value": "1",
-                      "false-value": "0"
-                    },
+                    attrs: { type: "checkbox", value: "3" },
                     domProps: {
-                      checked: Array.isArray(_vm.company.check_box_3)
-                        ? _vm._i(_vm.company.check_box_3, null) > -1
-                        : _vm._q(_vm.company.check_box_3, "1")
+                      checked: Array.isArray(_vm.company.check_box_1)
+                        ? _vm._i(_vm.company.check_box_1, "3") > -1
+                        : _vm.company.check_box_1
                     },
                     on: {
                       change: function($event) {
-                        var $$a = _vm.company.check_box_3,
+                        var $$a = _vm.company.check_box_1,
                           $$el = $event.target,
-                          $$c = $$el.checked ? "1" : "0"
+                          $$c = $$el.checked ? true : false
                         if (Array.isArray($$a)) {
-                          var $$v = null,
+                          var $$v = "3",
                             $$i = _vm._i($$a, $$v)
                           if ($$el.checked) {
                             $$i < 0 &&
                               _vm.$set(
                                 _vm.company,
-                                "check_box_3",
+                                "check_box_1",
                                 $$a.concat([$$v])
                               )
                           } else {
                             $$i > -1 &&
                               _vm.$set(
                                 _vm.company,
-                                "check_box_3",
+                                "check_box_1",
                                 $$a.slice(0, $$i).concat($$a.slice($$i + 1))
                               )
                           }
                         } else {
-                          _vm.$set(_vm.company, "check_box_3", $$c)
+                          _vm.$set(_vm.company, "check_box_1", $$c)
                         }
                       }
                     }
@@ -38444,46 +38411,42 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.company.check_box_4,
-                        expression: "company.check_box_4"
+                        value: _vm.company.check_box_1,
+                        expression: "company.check_box_1"
                       }
                     ],
                     staticClass: "form-check-input",
-                    attrs: {
-                      type: "checkbox",
-                      "true-value": "1",
-                      "false-value": "0"
-                    },
+                    attrs: { type: "checkbox", value: "4" },
                     domProps: {
-                      checked: Array.isArray(_vm.company.check_box_4)
-                        ? _vm._i(_vm.company.check_box_4, null) > -1
-                        : _vm._q(_vm.company.check_box_4, "1")
+                      checked: Array.isArray(_vm.company.check_box_1)
+                        ? _vm._i(_vm.company.check_box_1, "4") > -1
+                        : _vm.company.check_box_1
                     },
                     on: {
                       change: function($event) {
-                        var $$a = _vm.company.check_box_4,
+                        var $$a = _vm.company.check_box_1,
                           $$el = $event.target,
-                          $$c = $$el.checked ? "1" : "0"
+                          $$c = $$el.checked ? true : false
                         if (Array.isArray($$a)) {
-                          var $$v = null,
+                          var $$v = "4",
                             $$i = _vm._i($$a, $$v)
                           if ($$el.checked) {
                             $$i < 0 &&
                               _vm.$set(
                                 _vm.company,
-                                "check_box_4",
+                                "check_box_1",
                                 $$a.concat([$$v])
                               )
                           } else {
                             $$i > -1 &&
                               _vm.$set(
                                 _vm.company,
-                                "check_box_4",
+                                "check_box_1",
                                 $$a.slice(0, $$i).concat($$a.slice($$i + 1))
                               )
                           }
                         } else {
-                          _vm.$set(_vm.company, "check_box_4", $$c)
+                          _vm.$set(_vm.company, "check_box_1", $$c)
                         }
                       }
                     }

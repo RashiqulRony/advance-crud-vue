@@ -56,16 +56,16 @@
                     <div class="row">
                         <div class="col-xs-12 form-group" >
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input"  type="checkbox" v-model="company.check_box_1" true-value="1" false-value="0">
+                                <input class="form-check-input"  type="checkbox" v-model="company.check_box_1" value="1">
                                 <label class="form-check-label">Box 1</label>
 
-                                <input class="form-check-input" type="checkbox" v-model="company.check_box_2" true-value="1" false-value="0">
+                                <input class="form-check-input" type="checkbox" v-model="company.check_box_1" value="2">
                                 <label class="form-check-label">Box 2</label>
 
-                                <input class="form-check-input" type="checkbox" v-model="company.check_box_3" true-value="1" false-value="0">
+                                <input class="form-check-input" type="checkbox" v-model="company.check_box_1" value="3">
                                 <label class="form-check-label">Box 2</label>
 
-                                <input class="form-check-input" type="checkbox" v-model="company.check_box_4" true-value="1" false-value="0">
+                                <input class="form-check-input" type="checkbox" v-model="company.check_box_1" value="4">
                                 <label class="form-check-label">Box 4</label>
                             </div>
 
@@ -121,10 +121,7 @@
                     email: '',
                     about: '',
                     country: '',
-                    check_box_1: '',
-                    check_box_2: '',
-                    check_box_3: '',
-                    check_box_4: '',
+                    check_box_1: [],
                     status: '',
                 }
             }
@@ -133,6 +130,7 @@
             saveForm() {
                 var app = this;
                 var newCompany = app.company;
+                console.log(newCompany);
                 axios.patch('/api/v1/companies/' + app.companyId, newCompany)
                     .then(function (resp) {
                         app.$router.replace('/');

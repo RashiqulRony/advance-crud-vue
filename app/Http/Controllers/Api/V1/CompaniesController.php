@@ -11,19 +11,50 @@ class CompaniesController extends Controller
 {
     public function index()
     {
-        return Company::orderBy('id', 'desc')->get();
+        $companies =  Company::orderBy('id', 'desc')->get();
+//        $response = [
+//            'pagination' => [
+//                'total' => $companies->total(),
+//                'per_page' => $companies->perPage(),
+//                'current_page' => $companies->currentPage(),
+//                'last_page' => $companies->lastPage(),
+//                'from' => $companies->firstItem(),
+//                'to' => $companies->lastItem()
+//            ],
+//            'data' => $companies
+//        ];
+
+        return response()->json($companies);
     }
 
     public function show($id)
     {
-        return Company::findOrFail($id);
+        $company = Company::findOrFail($id);
+        $data = [
+            "name" => $company->name,
+            "address" => $company->address,
+            "website" => $company->website,
+            "email" => $company->email,
+            "about" => $company->about,
+            "country" => $company->country,
+            "status" => $company->status,
+            "check_box_1" => json_decode($company->check_box_1),
+        ];
+        return $data;
     }
 
     public function update(Request $request, $id)
     {
         $company = Company::findOrFail($id);
-        $company->update($request->all());
-
+        $company->name = $request->name;
+        $company->address = $request->address;
+        $company->website = $request->website;
+        $company->email = $request->email;
+        $company->about = $request->about;
+        $company->country = $request->country;
+        $company->status = $request->status;
+        $company->check_box_1 = json_encode($request->check_box_1);
+        $company->save();
         return $company;
     }
 
@@ -45,7 +76,16 @@ class CompaniesController extends Controller
                 'error' => $validator->errors()
             ], 200);
         }
-        $company = Company::create($request->all());
+        $company = new Company();
+        $company->name = $request->name;
+        $company->address = $request->address;
+        $company->website = $request->website;
+        $company->email = $request->email;
+        $company->about = $request->about;
+        $company->country = $request->country;
+        $company->status = $request->status;
+        $company->check_box_1 = json_encode($request->check_box_1);
+        $company->save();
         return $company;
     }
 
